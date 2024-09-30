@@ -23,11 +23,14 @@ public final class GetTopGradeUseCase {
         // Call the API to get the usernames of all your team members
         float max = 0;
         final Team team = gradeDataBase.getMyTeam();
+        System.out.println("Team: " + team);
         // Call the API to get all the grades for the course for all your team members
         for (String username : team.getMembers()) {
+            System.out.println("Username: " + username);
             // Call the API to get the grade for the course for the username
             final Grade[] grades = gradeDataBase.getGrades(username);
             for (Grade grade : grades) {
+                System.out.println("Grade: " + grade);
 
                 if (grade.getCourse().equals(course)) {
                     // Sum all the grades
